@@ -1,0 +1,8 @@
+postgresqlPostgresPassword: otusAdminPwd123
+postgresqlUsername: otus
+postgresqlPassword: otus
+postgresqlDatabase: otus
+fullnameOverride: postgres
+
+persistence:
+  size: 1Gi

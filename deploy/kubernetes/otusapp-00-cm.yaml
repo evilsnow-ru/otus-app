@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: otusapp-cm
+data:
+  dbUrl: "jdbc:postgresql://postgres:5432/otus"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: otusapp-secrets
+data:
+  dbUser: b3R1cw==
+  dbPassword: b3R1cw==

@@ -1,0 +1,33 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: otusapp-initdb-job
+spec:
+  completions: 1
+  parallelism: 1
+  template:
+    metadata:
+      name: otusapp-initdb-job
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: otusapp-initdb-job
+          image: evilsnow/otus:2.0.0
+          env:
+            - name: MIGRATE
+              value: "true"
+            - name: SPRING_DATASOURCE_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: dbUrl
+                  name: otusapp-cm
+            - name: SPRING_DATASOURCE_USER
+              valueFrom:
+                secretKeyRef:
+                  key: dbUser
+                  name: otusapp-secrets
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: dbPassword
+                  name: otusapp-secrets

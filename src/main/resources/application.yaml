@@ -1,0 +1,12 @@
+server:
+  port: 8000
+
+spring:
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/otus"
+    username: "otus"
+    password: "otus"
+  jpa:
+    open-in-view: false
+  flyway:
+    enabled: false
